@@ -15,25 +15,21 @@ namespace Casinsinan_Module2Assessment
             Console.WriteLine("This program will check whether a given number is armstrong number or not");
 
             Console.Write("Please input a number: ");
-            temp = int.Parse(Console.ReadLine());
+            number = Convert.ToInt32(Console.ReadLine());
 
-            if (temp >= 0)
+            /* When the total of the cubes of a number's constituent digits equals that number, the number is identified as the Armstrong number. */
+
+            for (temp = number; number != 0; number = number / 10)
             {
-                number = temp;
-                while (temp > 0)
-                {
-                    r = temp % 10;
-                    sum += (r * r * r);
-                    temp /= 10;
-                }
-
-               if (sum == temp)
-            Console.WriteLine("\nThe given number: " + number + "is An Armstrong number"); //Print if the input number is an Armstrong number
+                r = number % 10;
+                sum = sum + (r * r * r); // sum of cube of individual number
             }
+            if (sum == temp)
+                Console.Write("The given number: {0} is an Armstrong number.\n", temp);
+            // Print if the number is an Armstrong number
             else
-            {
-            Console.WriteLine("\nThe given number: " + number + "is not An Armstrong number"); //Print if the input number is not an Armstrong number
-            }   
+                Console.Write("The given number: {0} is not an Armstrong number.\n", temp);
+            // Print if the number is not an Armstrong number
         }
     }
 }
